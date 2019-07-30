@@ -5,9 +5,9 @@ provider "azurerm" {
   tenant_id = "${var.tenant_id}"
 }
 provider "vsphere" {
-  user           = "${var.vsphere_user}"
-  password       = "${var.vsphere_password}"
-  vsphere_server = "${var.vsphere_server}"
+  user           = "${var.username}"
+  password       = "${var.password}"
+  vsphere_server = "${var.vcenter}"
   allow_unverified_ssl = true
 }
 variable subscription_id {}
