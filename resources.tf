@@ -42,8 +42,7 @@ data "vsphere_virtual_machine" "template" {
 }
 
 resource "vsphere_virtual_machine" "vm" {
-  count = 3
-  name  = "${lookup(var.vm_name, count.index)}"
+  name  = "${var.vm_name}"
 
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
@@ -71,13 +70,13 @@ resource "vsphere_virtual_machine" "vm" {
 
         customize {
             linux_options {
-                 host_name = "${lookup(var.host_name, count.index)}"
+                 host_name = "${var.host_name}"
                  domain = "${var.domain_name}"
                  time_zone = "${var.vm_time_zone}"
            }
 
         network_interface {
-          ipv4_address = "${lookup(var.count_ip, count.index)}"
+          ipv4_address = "${var.count_ip}"
           ipv4_netmask = "24"
        }
 

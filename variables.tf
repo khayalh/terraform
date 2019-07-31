@@ -32,13 +32,13 @@ variable "domain_name" {
     type = "string"
 }
 variable "vm_name" {
-    type = "map"
+    type = "string"
 }
 variable "host_name" {
-  type = "map"
+  type = "string"
 }
 variable "count_ip" {
-   type = "map"
+   type = "string"
 }
 variable "dns_server" {
   type = "list"
